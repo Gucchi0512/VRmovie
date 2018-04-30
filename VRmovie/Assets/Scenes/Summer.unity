@@ -3329,6 +3329,11 @@ Prefab:
       propertyPath: m_Name
       value: 'Tunnel(E) '
       objectReference: {fileID: 0}
+    - target: {fileID: 23917004033107206, guid: 183d054a419c8834196ba3001b990857,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 75e25b70bdde42948bd0e2318d1907d2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 183d054a419c8834196ba3001b990857, type: 2}
   m_IsPrefabParent: 0
@@ -4538,7 +4543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6775843655962704790bb3296921ae81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 1
 --- !u!4 &1906683907
 Transform:
   m_ObjectHideFlags: 0
