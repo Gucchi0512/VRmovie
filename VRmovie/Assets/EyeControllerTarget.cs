@@ -1,0 +1,24 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EyeControllerTarget : MonoBehaviour, Eyecontroller.IEyeControllerTarget
+{
+
+    Color _color;
+
+    void Awake() {
+
+        // 最初はrigid同士が干渉しないようにする
+        var rigid = gameObject.GetComponent<Rigidbody>();
+        rigid.isKinematic = true;
+
+    }
+
+    public void OnEyeContollerHit(bool isOn) {
+
+    }
+
+    public void OnEyeContollerClick() {
+        
+    }
+}

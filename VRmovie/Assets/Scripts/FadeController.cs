@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeController : MonoBehaviour {
     float fadeSpeed = 0.02f;        //透明度が変わるスピードを管理
@@ -9,7 +10,7 @@ public class FadeController : MonoBehaviour {
 
     public bool isFadeOut = false;  //フェードアウト処理の開始、完了を管理するフラグ
     public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
-
+    public bool isFadeing = false;
     Image fadeImage;                //透明度を変更するパネルのイメージ
 
     void Start() {
@@ -18,15 +19,19 @@ public class FadeController : MonoBehaviour {
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
         alfa = fadeImage.color.a;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update() {
         if (isFadeIn) {
+            isFadeing = true;
             StartFadeIn();
         }
 
         if (isFadeOut) {
+            isFadeing = true;
             StartFadeOut();
+
         }
     }
 
@@ -36,7 +41,9 @@ public class FadeController : MonoBehaviour {
         if (alfa <= 0) {                    //c)完全に透明になったら処理を抜ける
             isFadeIn = false;
             fadeImage.enabled = false;    //d)パネルの表示をオフにする
+            isFadeing = false;
         }
+
     }
 
     void StartFadeOut() {
@@ -45,10 +52,16 @@ public class FadeController : MonoBehaviour {
         SetAlpha();               // c)変更した透明度をパネルに反映する
         if (alfa >= 1) {             // d)完全に不透明になったら処理を抜ける
             isFadeOut = false;
+            isFadeing = true;
         }
     }
 
     void SetAlpha() {
         fadeImage.color = new Color(red, green, blue, alfa);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        isFadeOut = true;
+
     }
 }
