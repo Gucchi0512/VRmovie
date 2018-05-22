@@ -194,6 +194,14 @@ Prefab:
       propertyPath: m_Name
       value: EyeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4765027760177666, guid: 63fa0c8f82ef02c4698eb1e5677b7b3a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765027760177666, guid: 63fa0c8f82ef02c4698eb1e5677b7b3a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63fa0c8f82ef02c4698eb1e5677b7b3a, type: 2}
   m_IsPrefabParent: 0
@@ -480,8 +488,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 159.90259, y: 30.057312, z: 1}
-  m_Center: {x: 18.532501, y: -0.098846436, z: 0}
+  m_Size: {x: 159.90259, y: 30.057312, z: 5.8480835}
+  m_Center: {x: 18.532501, y: -0.098846436, z: -2.4240417}
 --- !u!114 &720747625
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class Eyecontroller : MonoBehaviour {
         }
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         // 物理オブジェクトのヒットテスト
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hitInfo, 100);
         Debug.Log(hasHit);

@@ -15,10 +15,6 @@ public class SceneController : MonoBehaviour
         eyes = GameObject.Find("EyeCanvas");
         fade = fadepanel.GetComponent<FadeController>();
         eye = this.GetComponent<Eyecontroller>();
-        Debug.Log(fadepanel);
-        Debug.Log(fade);
-        Debug.Log(eyes);
-        Debug.Log(eye);
     }
 
     // Update is called once per frame
