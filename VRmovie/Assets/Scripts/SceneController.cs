@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (eye.filled) {
+        if (eye.hasclicked) {
             fade.isFadeOut = true;
             if (!fade.isFadeing) {
                 SceneManager.LoadScene("Summer");
