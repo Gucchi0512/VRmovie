@@ -9,22 +9,24 @@ public class SceneController : MonoBehaviour
     FadeController fade;
     GameObject eyes;
     Eyecontroller eye;
-    // Use this for initialization
+    
+    public string scenename;// Use this for initialization
     void Start() {
-        fadepanel = GameObject.FindWithTag("panel");
+        /*fadepanel = GameObject.FindWithTag("panel");
         eyes = GameObject.Find("EyeCanvas");
         fade = fadepanel.GetComponent<FadeController>();
         eye = this.GetComponent<Eyecontroller>();
+          */
     }
 
     // Update is called once per frame
     void Update() {
-        if (eye.hasclicked) {
+        /*if (eye.hasclicked) {
             fade.isFadeOut = true;
             if (!fade.isFadeing) {
-                SceneManager.LoadScene("Summer");
+                SceneManager.LoadScene(scenename);
             }
-        }
+        }*/
         
     }
 

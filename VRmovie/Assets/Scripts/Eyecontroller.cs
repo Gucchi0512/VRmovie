@@ -9,13 +9,16 @@ using UnityEngine.SceneManagement;
 public class Eyecontroller : MonoBehaviour {
     RaycastHit hit;
     GameObject hitObject;
-    Image indicator;
+    public Image indicator;
+    public Image mark;
     GameObject panel;
     FadeController fade;
     public bool hasclicked =false;
+    public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
 	// Use this for initialization
 	void Start () {
         indicator = GameObject.Find("Indicator").GetComponent<Image>();
+        mark = GameObject.Find("Marker").GetComponent<Image>();
         panel = GameObject.Find("Panel");
         fade = panel.GetComponent<FadeController>();
         SceneManager.activeSceneChanged += OnSceneChanged;
@@ -23,17 +26,20 @@ public class Eyecontroller : MonoBehaviour {
 	
 	void AnimationIndicator(bool on) {
         if (on) {
-            indicator.fillAmount += 0.8f * Time.deltaTime;
+            indicator.fillAmount += 0.5f * Time.deltaTime;
         } else {
             indicator.fillAmount = 0;
         }
     }
 
     private void FixedUpdate() {
+        Debug.Log(flag);
         // 物理オブジェクトのヒットテスト
         RaycastHit hit;
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
-        Debug.Log(hasHit);
+        if (!flag) {
+            hasHit = false;
+        }
         if (!fade.isFadeing) {
             if (hasHit) {
                 //ターゲットが変更された場合
@@ -60,6 +66,11 @@ public class Eyecontroller : MonoBehaviour {
                         hasclicked = true;
                         indicator.fillAmount = 0;
                         DispatchClickEvent();
+                        if (flag) {
+                            flag = false;
+                            indicator.gameObject.SetActive(false);
+                            mark.gameObject.SetActive(false);
+                        }
                     }
                 }
 
@@ -70,7 +81,7 @@ public class Eyecontroller : MonoBehaviour {
                 hitObject = null;
                 hasclicked = false;
             }
-        }
+        }       
     }
     public interface IEyeControllerTarget
     {
@@ -98,5 +109,8 @@ public class Eyecontroller : MonoBehaviour {
     public void OnSceneChanged(Scene scene, Scene scene2) {
         indicator.gameObject.SetActive(false);
         GameObject.Find("Marker").gameObject.SetActive(false);
+        flag = false;
+        indicator.enabled = false;
+        mark.enabled = false;
     }
 }

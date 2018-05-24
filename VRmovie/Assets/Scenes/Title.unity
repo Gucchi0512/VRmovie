@@ -156,7 +156,18 @@ Prefab:
       propertyPath: m_Name
       value: VReye
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114212843028012776, guid: a49c722217472204286f89372d6835c1,
+        type: 2}
+      propertyPath: scenename
+      value: Summer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114607714284890490, guid: a49c722217472204286f89372d6835c1,
+        type: 2}
+      propertyPath: scenename
+      value: Summer
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114212843028012776, guid: a49c722217472204286f89372d6835c1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a49c722217472204286f89372d6835c1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &481646260
@@ -245,7 +256,6 @@ GameObject:
   - component: {fileID: 720747621}
   - component: {fileID: 720747620}
   - component: {fileID: 720747624}
-  - component: {fileID: 720747625}
   - component: {fileID: 720747626}
   m_Layer: 5
   m_Name: Menu
@@ -343,17 +353,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 159.90259, y: 30.057312, z: 5.8480835}
   m_Center: {x: 18.532501, y: -0.098846436, z: -2.4240417}
---- !u!114 &720747625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 720747619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185a6b1ddc4ab694f84805a456d43912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &720747626
 Rigidbody:
   m_ObjectHideFlags: 0
