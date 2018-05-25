@@ -1994,6 +1994,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847431578}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &858088499 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1181433171551380, guid: 183d054a419c8834196ba3001b990857,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422888812}
+--- !u!114 &858088500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858088499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a857cb33338206a448d2905f139da6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenename: Title
 --- !u!1 &868096617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,6 +2623,7 @@ Prefab:
       objectReference: {fileID: 2113925246}
     m_RemovedComponents:
     - {fileID: 114212843028012776, guid: a49c722217472204286f89372d6835c1, type: 2}
+    - {fileID: 114857574898953520, guid: a49c722217472204286f89372d6835c1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a49c722217472204286f89372d6835c1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1165383066
@@ -2898,6 +2916,26 @@ Transform:
   m_Father: {fileID: 1906683907}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1284685986 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1637249746877598, guid: a49c722217472204286f89372d6835c1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1064577483}
+--- !u!114 &1284685988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284685986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306be967f89ecc4ebe69abd241002be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 0}
+  mark: {fileID: 0}
+  hasclicked: 0
+  flag: 1
 --- !u!1 &1303802116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3440,8 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 75e25b70bdde42948bd0e2318d1907d2, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114225921940823486, guid: 183d054a419c8834196ba3001b990857, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 183d054a419c8834196ba3001b990857, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1439377260
@@ -4628,7 +4667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6775843655962704790bb3296921ae81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.75
 --- !u!4 &1906683907
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class EyeControllerTarget : MonoBehaviour, Eyecontroller.IEyeControllerTa
     }
 
     public void OnEyeContollerHit(bool isOn) {
-        Debug.Log("targetScriotsCAlled");
     }
 
     public void OnEyeContollerClick() {

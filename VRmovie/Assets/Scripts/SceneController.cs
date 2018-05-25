@@ -12,9 +12,11 @@ public class SceneController : MonoBehaviour
     
     public string scenename;// Use this for initialization
     void Start() {
-        /*fadepanel = GameObject.FindWithTag("panel");
-        eyes = GameObject.Find("EyeCanvas");
+        fadepanel = GameObject.FindWithTag("panel");
         fade = fadepanel.GetComponent<FadeController>();
+        /*
+        eyes = GameObject.Find("EyeCanvas");
+        
         eye = this.GetComponent<Eyecontroller>();
           */
     }

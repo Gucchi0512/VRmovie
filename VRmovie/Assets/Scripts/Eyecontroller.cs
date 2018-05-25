@@ -13,6 +13,7 @@ public class Eyecontroller : MonoBehaviour {
     public Image mark;
     GameObject panel;
     FadeController fade;
+    string scenename;
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
 	// Use this for initialization
@@ -22,7 +23,8 @@ public class Eyecontroller : MonoBehaviour {
         panel = GameObject.Find("Panel");
         fade = panel.GetComponent<FadeController>();
         SceneManager.activeSceneChanged += OnSceneChanged;
-	}
+        scenename = SceneManager.GetActiveScene().name;
+    }
 	
 	void AnimationIndicator(bool on) {
         if (on) {
@@ -33,12 +35,13 @@ public class Eyecontroller : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Debug.Log(flag);
         // 物理オブジェクトのヒットテスト
         RaycastHit hit;
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
-        if (!flag) {
+        if (scenename!="Title") {
             hasHit = false;
+            indicator.gameObject.SetActive(false);
+            mark.gameObject.SetActive(false);
         }
         if (!fade.isFadeing) {
             if (hasHit) {
@@ -66,11 +69,6 @@ public class Eyecontroller : MonoBehaviour {
                         hasclicked = true;
                         indicator.fillAmount = 0;
                         DispatchClickEvent();
-                        if (flag) {
-                            flag = false;
-                            indicator.gameObject.SetActive(false);
-                            mark.gameObject.SetActive(false);
-                        }
                     }
                 }
 
@@ -107,10 +105,6 @@ public class Eyecontroller : MonoBehaviour {
         }
     }
     public void OnSceneChanged(Scene scene, Scene scene2) {
-        indicator.gameObject.SetActive(false);
-        GameObject.Find("Marker").gameObject.SetActive(false);
-        flag = false;
-        indicator.enabled = false;
-        mark.enabled = false;
+        
     }
 }
