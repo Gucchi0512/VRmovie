@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Summer.unity
-    guid: 5cb39b566f9169e40896962a9f02939e
-  - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: dd6a79cef95524f4f977a1b876a3cfd6
   - enabled: 1
     path: Assets/Scenes/Spring.unity
     guid: 6a2fe6d8aa67f6546890fb399b75ef0a
+  - enabled: 1
+    path: Assets/Scenes/Summer.unity
+    guid: 5cb39b566f9169e40896962a9f02939e
+  - enabled: 1
+    path: Assets/Scenes/Autumn.unity
+    guid: 93d8cd1681f290b498629d5f2d4c16e4
   m_configObjects: {}
