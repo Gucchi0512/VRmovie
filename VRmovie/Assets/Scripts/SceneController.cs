@@ -8,17 +8,12 @@ public class SceneController : MonoBehaviour
     GameObject fadepanel;
     FadeController fade;
     GameObject eyes;
-    Eyecontroller eye;
-    
+    Fade eye;
     public string scenename;// Use this for initialization
     void Start() {
-        fadepanel = GameObject.FindWithTag("panel");
-        fade = fadepanel.GetComponent<FadeController>();
-        /*
-        eyes = GameObject.Find("EyeCanvas");
-        
-        eye = this.GetComponent<Eyecontroller>();
-          */
+        eyes = GameObject.FindWithTag("MainCamera");
+        eye = eyes.GetComponent<Fade>();
+        Debug.Log(eye);
     }
 
     // Update is called once per frame
@@ -33,9 +28,6 @@ public class SceneController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (!fade.isFadeOut) {
-            fade.isFadeOut = true;
-        }
-
+        eye.FadeIn();
     }
 }

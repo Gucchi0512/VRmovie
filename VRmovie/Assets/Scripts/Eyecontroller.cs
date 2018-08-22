@@ -18,8 +18,8 @@ public class Eyecontroller : MonoBehaviour {
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
 	// Use this for initialization
 	void Start () {
-        indicator = GameObject.Find("Indicator").GetComponent<Image>();
-        mark = GameObject.Find("Marker").GetComponent<Image>();
+        //indicator = GameObject.Find("Indicator").GetComponent<Image>();
+        //mark = GameObject.Find("Marker").GetComponent<Image>();
         panel = GameObject.Find("Panel");
         fade = panel.GetComponent<FadeController>();
         SceneManager.activeSceneChanged += OnSceneChanged;
@@ -43,7 +43,6 @@ public class Eyecontroller : MonoBehaviour {
             indicator.gameObject.SetActive(false);
             mark.gameObject.SetActive(false);
         }
-        if (!fade.isFadeing) {
             if (hasHit) {
                 //ターゲットが変更された場合
                 if (hitObject != hit.collider.gameObject) {
@@ -78,8 +77,7 @@ public class Eyecontroller : MonoBehaviour {
                 DispatchHitEvent(false);
                 hitObject = null;
                 hasclicked = false;
-            }
-        }       
+            }     
     }
     public interface IEyeControllerTarget
     {

@@ -61,11 +61,7 @@ public class FadeController : MonoBehaviour {//シーン遷移を含む
         fadeImage.enabled = true;  // a)パネルの表示をオンにする
         alfa += fadeSpeed;
         SetAlpha();
-        /*while (time <= interval) {
-            alfa = Mathf.Lerp(0.0f, 1.0f, time / interval);         // b)不透明度を徐々にあげる
-            SetAlpha();      // c)変更した透明度をパネルに反映する
-            time += Time.deltaTime;
-        } */
+        
         if (alfa >= 1) {
             isFadeOut = false;   // d)完全に不透明になったら処理を抜ける
             isFadeing = false;
