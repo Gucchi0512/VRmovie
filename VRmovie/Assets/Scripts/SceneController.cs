@@ -27,7 +27,6 @@ public class SceneController : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other) {
-        eye.FadeIn();
-    }
+    
+    
 }
