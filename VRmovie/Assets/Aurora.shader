@@ -23,13 +23,14 @@
 			};
 			void vert(inout appdata_full v, out Input o) {
 				UNITY_INITIALIZE_OUTPUT(Input, o);
-				float amp = 1.5*sin(_Time * 100 + v.vertex.x * 100);
-				v.vertex.xyz = float3(v.vertex.x, v.vertex.y + amp, v.vertex.z);
+				float amp = 0.1*sin(_Time * 100 + v.vertex.x * 100);
+				v.vertex.xyz = float3(v.vertex.x, v.vertex.y+(amp*15.0f), v.vertex.z+amp);
 				//v.normal = normalize(float3(v.normal.x+offset_, v.normal.y, v.normal.z));
 			}
 			void surf(Input IN, inout SurfaceOutputStandard o) {
 				fixed2 uv = IN.uv_MainTex;
-				uv.x += _ScrollSpeed * _Time;
+				uv.x += _ScrollSpeed * _Time;\
+				o.Albedo = tex2D(_MainTex, uv);
 				fixed4 c2 = tex2D(_MainTex, uv)*_Color;
 				o.Albedo = c2.rgb;
 				o.Alpha = c2.a;
