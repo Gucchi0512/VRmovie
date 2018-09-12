@@ -4924,7 +4924,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 292073840}
   m_LocalRotation: {x: -0.12044776, y: 0.24135666, z: 0.030207882, w: 0.9624587}
-  m_LocalPosition: {x: 708.0813, y: -505.88068, z: -1244.6901}
+  m_LocalPosition: {x: 924.69586, y: -709.423, z: -1046.4579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20011,7 +20011,7 @@ GameObject:
   - component: {fileID: 2063076129}
   - component: {fileID: 2063076128}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Aurora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20028,7 +20028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50091075b6bce714bbcd73abc4eee722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: Aurora10
+  effectName: Aurora14
   playOnStart: 1
   loop: 1
 --- !u!4 &2063076129
@@ -20038,7 +20038,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063076127}
   m_LocalRotation: {x: -0, y: -0.7056699, z: -0, w: 0.70854074}
-  m_LocalPosition: {x: 1810, y: 175.6, z: 404.625}
+  m_LocalPosition: {x: 1645, y: 65, z: 46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
