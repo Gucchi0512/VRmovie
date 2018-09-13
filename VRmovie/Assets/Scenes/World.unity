@@ -170,6 +170,7 @@ Transform:
   - {fileID: 1805997367}
   - {fileID: 892723003}
   - {fileID: 1240820383}
+  - {fileID: 2063076129}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4923,8 +4924,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 292073840}
-  m_LocalRotation: {x: -0.12044776, y: 0.24135666, z: 0.030207882, w: 0.9624587}
-  m_LocalPosition: {x: 924.69586, y: -709.423, z: -1046.4579}
+  m_LocalRotation: {x: -0.107510746, y: 0.14560388, z: 0.015919473, w: 0.9833553}
+  m_LocalPosition: {x: -4894.481, y: -4649.3853, z: -20078.494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19850,71 +19851,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4219925578605192, guid: 92361f9314c6f4c498b300ee42cdfb0a,
     type: 2}
   m_PrefabInternal: {fileID: 2103517733}
---- !u!1 &1944006349
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1944006351}
-  - component: {fileID: 1944006350}
-  m_Layer: 0
-  m_Name: Area Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1944006350
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944006349}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 3
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 2
-  m_AreaSize: {x: 100, y: 500}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1944006351
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944006349}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1691, y: 137, z: 114}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1987616995
 GameObject:
   m_ObjectHideFlags: 0
@@ -20028,7 +19964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50091075b6bce714bbcd73abc4eee722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: Aurora14
+  effectName: Aurora18
   playOnStart: 1
   loop: 1
 --- !u!4 &2063076129
@@ -20037,12 +19973,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063076127}
-  m_LocalRotation: {x: -0, y: -0.7056699, z: -0, w: 0.70854074}
-  m_LocalPosition: {x: 1645, y: 65, z: 46}
+  m_LocalRotation: {x: -0, y: -0.70566994, z: -0, w: 0.7085408}
+  m_LocalPosition: {x: 194, y: 432.10388, z: -579.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 54899675}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -89.767006, z: 0}
 --- !u!1001 &2103517733
 Prefab:
