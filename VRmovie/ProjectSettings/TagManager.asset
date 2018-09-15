@@ -7,6 +7,7 @@ TagManager:
   - train
   - panel
   - Endpoint
+  - Sun
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using VRStandardAssets.Utils;
 
 public class Eyecontroller : MonoBehaviour {
     RaycastHit hit;
@@ -13,17 +13,22 @@ public class Eyecontroller : MonoBehaviour {
     public Image mark;
     GameObject panel;
     FadeController fade;
-    string scenename;
+    VRCameraFade VRCameraFade;
+    Camera eyes;
+    GameObject player;
+    move eyemanage;
+    SeasonChange seasonmanage;
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
 	// Use this for initialization
 	void Start () {
-        //indicator = GameObject.Find("Indicator").GetComponent<Image>();
-        //mark = GameObject.Find("Marker").GetComponent<Image>();
+        eyes = GetComponentInParent<Camera>();
+        VRCameraFade = GetComponentInParent<VRCameraFade>();
+        player = GameObject.FindWithTag("train");
         panel = GameObject.Find("Panel");
-        fade = panel.GetComponent<FadeController>();
-        SceneManager.activeSceneChanged += OnSceneChanged;
-        scenename = SceneManager.GetActiveScene().name;
+        eyemanage = player.GetComponent<move>();
+        seasonmanage = player.GetComponent<SeasonChange>();
+        FadeIn();
     }
 	
 	void AnimationIndicator(bool on) {
@@ -38,46 +43,44 @@ public class Eyecontroller : MonoBehaviour {
         // 物理オブジェクトのヒットテスト
         RaycastHit hit;
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
-        if (scenename!="Title") {
-            hasHit = false;
-            indicator.gameObject.SetActive(false);
-            mark.gameObject.SetActive(false);
-        }
-            if (hasHit) {
-                //ターゲットが変更された場合
-                if (hitObject != hit.collider.gameObject) {
+        if (hasHit) {
+            //ターゲットが変更された場合
+            if (hitObject != hit.collider.gameObject) {
 
-                    // 以前のターゲットを無効に
-                    if (hitObject) {
-                        AnimationIndicator(false);
-                        DispatchHitEvent(false);
-                    }
+            // 以前のターゲットを無効に
+            if (hitObject) {
+                 AnimationIndicator(false);
+                 DispatchHitEvent(false);
+            }
 
-                    //ヒットイベント発行
-                    hasclicked = false;
-                    hitObject = hit.collider.gameObject;
-                    DispatchHitEvent(true);
-                } else {
-
-                    //インジケーターアニメーション開始
-                    if (hasclicked == false) {
-                        AnimationIndicator(true);
-                    }
-
-                    if (indicator.fillAmount >= 1) {
-                        hasclicked = true;
-                        indicator.fillAmount = 0;
-                        DispatchClickEvent();
-                    }
-                }
-
+             //ヒットイベント発行
+            hasclicked = false;
+            hitObject = hit.collider.gameObject;
+            DispatchHitEvent(true);
             } else {
-                //インジケーターアニメーション停止
-                AnimationIndicator(false);
-                DispatchHitEvent(false);
-                hitObject = null;
-                hasclicked = false;
-            }     
+
+                 //インジケーターアニメーション開始
+                 if (hasclicked == false) {
+                    AnimationIndicator(true);
+                 }
+
+                 if (indicator.fillAmount >= 1) {
+                    hasclicked = true;
+                    FadeOut();
+
+
+                    indicator.fillAmount = 0;
+                    DispatchClickEvent();
+                 }
+            }
+
+        } else {
+            //インジケーターアニメーション停止
+            AnimationIndicator(false);
+            DispatchHitEvent(false);
+            hitObject = null;
+            hasclicked = false;
+        }     
     }
     public interface IEyeControllerTarget
     {
@@ -102,7 +105,28 @@ public class Eyecontroller : MonoBehaviour {
             }
         }
     }
-    public void OnSceneChanged(Scene scene, Scene scene2) {
-        
+
+    public void FadeIn() {
+        StartCoroutine(FadeInCoroutine());
     }
+    public void FadeOut() {
+        StartCoroutine(FadeOutCoroutine());
+    }
+
+    private IEnumerator FadeInCoroutine() {
+        yield return StartCoroutine(VRCameraFade.BeginFadeIn(true));
+        Debug.Log("FadeIn Finished");
+    }
+
+    private IEnumerator FadeOutCoroutine() {
+        yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
+        Debug.Log("FadeOut Finished");
+        eyes.enabled = false;
+        eyemanage.transform.position = eyemanage.Startpos[0].position;
+        eyemanage.sunmanage.RotateofSun(0);
+        seasonmanage.ChangeSeason(0);
+        eyemanage.flag = true;
+        eyemanage.eyes.enabled = true;
+    }
+
 }
