@@ -6,7 +6,7 @@ using VRStandardAssets.Utils;
 public class move : MonoBehaviour {
     public float speed=1.0f;
     public Transform[] Startpos;
-    int count=1;
+    [SerializeField]int count=1;
     Vector3 pos;
     GameObject Eye;
     VRCameraFade VRCameraFade;
@@ -32,6 +32,7 @@ public class move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (count >= 4) count = 0;
         if (eyes.enabled) {
             pos = transform.position;
             if (!fading && flag) {
@@ -65,14 +66,16 @@ public class move : MonoBehaviour {
     }
 
     private IEnumerator FadeOutCoroutine() {
-        fading = true;
-        yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
-        Debug.Log("FadeOut Finished");
-        this.transform.position = Startpos[count%4].position;
-        sunmanage.RotateofSun(count % 4);
-        seasonmanage.ChangeSeason(count % 4);
-        count++;
-        fading = false;
-        flag = true;
+        if (!fading) {
+            fading = true;
+            yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
+            Debug.Log("FadeOut Finished");
+            this.transform.position = Startpos[count].position;
+            sunmanage.RotateofSun(count);
+            seasonmanage.ChangeSeason(count);
+            count++;
+            fading = false;
+            flag = true;
+        }
     }
 }
