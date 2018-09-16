@@ -16,9 +16,8 @@ public class Eyecontroller : MonoBehaviour {
     VRCameraFade VRCameraFade;
     Camera eyes;
     GameObject player;
-    move move;
+    move eyemanage;
     SeasonChange seasonmanage;
-    GameObject parent;
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
 	// Use this for initialization
@@ -27,8 +26,9 @@ public class Eyecontroller : MonoBehaviour {
         VRCameraFade = GetComponentInParent<VRCameraFade>();
         player = GameObject.FindWithTag("train");
         panel = GameObject.Find("Panel");
-        move = player.GetComponent<move>();
+        eyemanage = player.GetComponent<move>();
         seasonmanage = player.GetComponent<SeasonChange>();
+        FadeIn();
     }
 	
 	void AnimationIndicator(bool on) {
@@ -65,7 +65,10 @@ public class Eyecontroller : MonoBehaviour {
                  }
 
                  if (indicator.fillAmount >= 1) {
-                    move.FadeOut();
+                    hasclicked = true;
+                    FadeOut();
+
+
                     indicator.fillAmount = 0;
                     DispatchClickEvent();
                  }
@@ -76,7 +79,7 @@ public class Eyecontroller : MonoBehaviour {
             AnimationIndicator(false);
             DispatchHitEvent(false);
             hitObject = null;
-            //hasclicked = false;
+            hasclicked = false;
         }     
     }
     public interface IEyeControllerTarget
@@ -101,6 +104,29 @@ public class Eyecontroller : MonoBehaviour {
                 target.OnEyeContollerClick();
             }
         }
+    }
+
+    public void FadeIn() {
+        StartCoroutine(FadeInCoroutine());
+    }
+    public void FadeOut() {
+        StartCoroutine(FadeOutCoroutine());
+    }
+
+    private IEnumerator FadeInCoroutine() {
+        yield return StartCoroutine(VRCameraFade.BeginFadeIn(true));
+        Debug.Log("FadeIn Finished");
+    }
+
+    private IEnumerator FadeOutCoroutine() {
+        yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
+        Debug.Log("FadeOut Finished");
+        eyes.enabled = false;
+        eyemanage.transform.position = eyemanage.Startpos[0].position;
+        eyemanage.sunmanage.RotateofSun(0);
+        seasonmanage.ChangeSeason(0);
+        eyemanage.flag = true;
+        eyemanage.eyes.enabled = true;
     }
 
 }
