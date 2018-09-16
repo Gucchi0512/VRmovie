@@ -169,10 +169,14 @@ Transform:
   - {fileID: 1317129104}
   - {fileID: 892723003}
   - {fileID: 1240820383}
+<<<<<<< HEAD
   - {fileID: 1944006351}
   - {fileID: 2063076129}
   - {fileID: 1448823744}
   - {fileID: 137899319}
+=======
+  - {fileID: 2063076129}
+>>>>>>> origin/develop
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5232,6 +5236,7 @@ MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 210317425}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5335,6 +5340,17 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 221755852}
 --- !u!1 &238068497
+=======
+  m_GameObject: {fileID: 292073840}
+  m_LocalRotation: {x: -0.107510746, y: 0.14560388, z: 0.015919473, w: 0.9833553}
+  m_LocalPosition: {x: -4894.481, y: -4649.3853, z: -20078.494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &432927577
+>>>>>>> origin/develop
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -27995,6 +28011,7 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4441270091035170, guid: 1f0784602bde204409a8f7df8129b7aa,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 2042242882}
 --- !u!1 &2042615909
 GameObject:
@@ -28033,6 +28050,11 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042615911
 MonoBehaviour:
+=======
+  m_PrefabInternal: {fileID: 2103517733}
+--- !u!1 &1987616995
+GameObject:
+>>>>>>> origin/develop
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -28143,7 +28165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50091075b6bce714bbcd73abc4eee722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   effectName: Aurora20
+=======
+  effectName: Aurora18
+>>>>>>> origin/develop
   playOnStart: 1
   loop: 1
 --- !u!4 &2063076129
@@ -28153,8 +28179,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063076127}
   m_LocalRotation: {x: -0, y: -0.70566994, z: -0, w: 0.7085408}
+<<<<<<< HEAD
   m_LocalPosition: {x: 207, y: 426, z: -524}
   m_LocalScale: {x: 0.25, y: 0.5, z: 1}
+=======
+  m_LocalPosition: {x: 194, y: 432.10388, z: -579.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> origin/develop
   m_Children: []
   m_Father: {fileID: 54899675}
   m_RootOrder: 4
