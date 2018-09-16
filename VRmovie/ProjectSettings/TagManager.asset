@@ -8,6 +8,7 @@ TagManager:
   - panel
   - Endpoint
   - Sun
+  - SubCamera
   layers:
   - Default
   - TransparentFX

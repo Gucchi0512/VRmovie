@@ -20,8 +20,10 @@ public class Eyecontroller : MonoBehaviour {
     SeasonChange seasonmanage;
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
-	// Use this for initialization
-	void Start () {
+    public move.Delegate delegetemethod;
+    // Use this for initialization
+    void Start () {
+        delegetemethod = FadeIn;
         eyes = GetComponentInParent<Camera>();
         VRCameraFade = GetComponentInParent<VRCameraFade>();
         player = GameObject.FindWithTag("train");
@@ -40,6 +42,7 @@ public class Eyecontroller : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (eyemanage.count > 4) eyemanage.BackToTitle(delegetemethod);
         // 物理オブジェクトのヒットテスト
         RaycastHit hit;
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);

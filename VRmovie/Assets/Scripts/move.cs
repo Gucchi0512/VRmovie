@@ -6,9 +6,8 @@ using VRStandardAssets.Utils;
 public class move : MonoBehaviour {
     public float speed=1.0f;
     public Transform[] Startpos;
-    [SerializeField]int count=1;
+    public int count=1;
     Vector3 pos;
-    GameObject Eye;
     VRCameraFade VRCameraFade;
     public Camera eyes;
     public bool flag=false;
@@ -17,11 +16,11 @@ public class move : MonoBehaviour {
     public SunRotate sunmanage;
     GameObject maincamera;
     SeasonChange seasonmanage;
-	// Use this for initialization
-	void Start () {
+    public delegate void Delegate();
+    // Use this for initialization
+    void Start () {
         maincamera = GameObject.FindWithTag("MainCamera");
         Sun = GameObject.FindWithTag("Sun");
-        Eye = GameObject.FindWithTag("MainCamera");
         sunmanage = Sun.GetComponent<SunRotate>();
         VRCameraFade = FindObjectOfType<VRCameraFade>();
         eyes = maincamera.GetComponent<Camera>();
@@ -32,7 +31,6 @@ public class move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (count >= 4) count = 0;
         if (eyes.enabled) {
             pos = transform.position;
             if (!fading && flag) {
@@ -70,12 +68,24 @@ public class move : MonoBehaviour {
             fading = true;
             yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
             Debug.Log("FadeOut Finished");
-            this.transform.position = Startpos[count].position;
-            sunmanage.RotateofSun(count);
-            seasonmanage.ChangeSeason(count);
+            if (count < 4) {
+                this.transform.position = Startpos[count].position;
+                sunmanage.RotateofSun(count);
+                seasonmanage.ChangeSeason(count);
+
+            }
             count++;
             fading = false;
             flag = true;
         }
+    }
+
+    public void BackToTitle(Delegate delegatemethod) {
+        GameObject subCamera = GameObject.FindWithTag("SubCamera");
+        Eyecontroller eyecontroller = subCamera.GetComponentInChildren<Eyecontroller>();
+        Camera sub = subCamera.GetComponent<Camera>();
+        sub.enabled = true;
+        eyes.enabled = false;
+        delegatemethod();
     }
 }
