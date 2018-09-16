@@ -8,6 +8,7 @@ TagManager:
   - panel
   - Endpoint
   - Sun
+  - EyeGuide
   layers:
   - Default
   - TransparentFX

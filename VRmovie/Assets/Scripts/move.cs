@@ -6,33 +6,34 @@ using VRStandardAssets.Utils;
 public class move : MonoBehaviour {
     public float speed=1.0f;
     public Transform[] Startpos;
-    int count=1;
+    [SerializeField]int count=0;
     Vector3 pos;
-    GameObject Eye;
     VRCameraFade VRCameraFade;
     public Camera eyes;
     public bool flag=false;
-    bool fading;
+    [SerializeField]bool fading;
     GameObject Sun;
     public SunRotate sunmanage;
     GameObject maincamera;
-    SeasonChange seasonmanage;
+    public SeasonChange seasonmanage;
+    Eyecontroller eyecontroller;
 	// Use this for initialization
 	void Start () {
         maincamera = GameObject.FindWithTag("MainCamera");
         Sun = GameObject.FindWithTag("Sun");
-        Eye = GameObject.FindWithTag("MainCamera");
         sunmanage = Sun.GetComponent<SunRotate>();
-        VRCameraFade = FindObjectOfType<VRCameraFade>();
+        VRCameraFade = maincamera.GetComponent<VRCameraFade>();
         eyes = maincamera.GetComponent<Camera>();
         seasonmanage = GetComponent<SeasonChange>();
+        eyecontroller = maincamera.GetComponent<Eyecontroller>();
         sunmanage.RotateofSun(0);
         pos = transform.position;
+        FadeIn();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (eyes.enabled) {
+        if (!eyecontroller.enabled) {
             pos = transform.position;
             if (!fading && flag) {
                 FadeIn();
@@ -55,11 +56,15 @@ public class move : MonoBehaviour {
     public void FadeOut() {
         StartCoroutine(FadeOutCoroutine());
     }
-
+    public void CameraMove() {
+        GameObject cameraparent = maincamera.transform.parent.gameObject;
+        cameraparent.transform.localPosition= new Vector3(5f, 3.8f, 11.1f);
+        eyecontroller.enabled = !eyecontroller.enabled;
+    }
     private IEnumerator FadeInCoroutine() {
         fading = true;
         yield return StartCoroutine(VRCameraFade.BeginFadeIn(true));
-        Debug.Log("FadeIn Finished");
+        Debug.Log("FadeIn Finished-2");
         fading = false;
         flag = false;
     }
@@ -67,7 +72,8 @@ public class move : MonoBehaviour {
     private IEnumerator FadeOutCoroutine() {
         fading = true;
         yield return StartCoroutine(VRCameraFade.BeginFadeOut(true));
-        Debug.Log("FadeOut Finished");
+        Debug.Log("FadeOut Finished-2");
+        if (count == 0) CameraMove();
         this.transform.position = Startpos[count%4].position;
         sunmanage.RotateofSun(count % 4);
         seasonmanage.ChangeSeason(count % 4);
