@@ -17,10 +17,12 @@ public class move : MonoBehaviour {
     GameObject maincamera;
     SeasonChange seasonmanage;
     public delegate void Delegate();
+    BGMManager bgmManager;
     // Use this for initialization
     void Start () {
         maincamera = GameObject.FindWithTag("MainCamera");
         Sun = GameObject.FindWithTag("Sun");
+        bgmManager = maincamera.GetComponent<BGMManager>();
         sunmanage = Sun.GetComponent<SunRotate>();
         VRCameraFade = FindObjectOfType<VRCameraFade>();
         eyes = maincamera.GetComponent<Camera>();
@@ -57,6 +59,7 @@ public class move : MonoBehaviour {
 
     private IEnumerator FadeInCoroutine() {
         fading = true;
+        bgmManager.BGM(count-1);
         yield return StartCoroutine(VRCameraFade.BeginFadeIn(true));
         Debug.Log("FadeIn Finished");
         fading = false;

@@ -21,8 +21,10 @@ public class Eyecontroller : MonoBehaviour {
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
     public move.Delegate delegetemethod;
+    BGMManager bgmManager;
     // Use this for initialization
     void Start () {
+        bgmManager = GetComponentInParent<BGMManager>();
         delegetemethod = FadeIn;
         eyes = GetComponentInParent<Camera>();
         VRCameraFade = GetComponentInParent<VRCameraFade>();
@@ -42,7 +44,11 @@ public class Eyecontroller : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (eyemanage.count > 4) eyemanage.BackToTitle(delegetemethod);
+        if (eyemanage.count > 4) {
+            eyemanage.BackToTitle(delegetemethod);
+            eyemanage.count = 1;
+            eyemanage.sunmanage.RotateofSun(0);
+        }
         // 物理オブジェクトのヒットテスト
         RaycastHit hit;
         bool hasHit = Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
@@ -62,7 +68,7 @@ public class Eyecontroller : MonoBehaviour {
             DispatchHitEvent(true);
             } else {
 
-                 //インジケーターアニメーション開始
+                 //インジケーターアニメーション
                  if (hasclicked == false) {
                     AnimationIndicator(true);
                  }
