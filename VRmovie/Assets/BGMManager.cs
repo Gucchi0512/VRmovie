@@ -11,6 +11,10 @@ public class BGMManager : MonoBehaviour {
 	}
 	   
     public void BGM(int num) {
+        if (num > 3) {
+            AudioSource.Stop();
+            return;
+        }
         AudioSource.clip = audioClips[num];
         AudioSource.Play();
     }

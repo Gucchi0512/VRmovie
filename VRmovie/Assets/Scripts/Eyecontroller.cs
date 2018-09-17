@@ -21,10 +21,8 @@ public class Eyecontroller : MonoBehaviour {
     public bool hasclicked =false;
     public bool flag = true; //メニュー画面のみインジケータを出すためのフラグ
     public move.Delegate delegetemethod;
-    BGMManager bgmManager;
     // Use this for initialization
     void Start () {
-        bgmManager = GetComponentInParent<BGMManager>();
         delegetemethod = FadeIn;
         eyes = GetComponentInParent<Camera>();
         VRCameraFade = GetComponentInParent<VRCameraFade>();
